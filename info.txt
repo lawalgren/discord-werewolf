@@ -1,0 +1,39 @@
+Tanner;You hate your job and your life. You win if you are eliminated.;-2,1 #Implemented
+Cupid;The first night, choose two players to be linked together. If one of them is eliminated, the other is eliminated as well.;-3;1 #Implemented
+Minion;You know who the Werewolves are, but you do not wake up with them at night.;-6;1 #Implemented
+Virginia Woolf;The first night, choose a player to be afraid of you. If you are eliminated, that player is also eliminated.;-2;1 #Implemented
+Doppelganger;The first night, choose a player. When that player is eliminated you become that role.;-2;1
+Lycan;You are a villager, but appear to the Seer as a Werewolf.;-1;1 #Implemented
+Pacifist;You must always vote for players to not be eliminated.;-1;1 #Implemented
+Sorceress;Each night, look for the Seer. You are on the werewolf team.;-3;1 #Implemented
+Troublemaker;One night per game, stir up trouble by calling for players to be eliminated the following day.;-3;1 #Implemented
+Cursed;You are on the Villager team unless you are targeted for elimination by the Werewolves, at which time you become a Werewolf;-3;1
+Hoodlum;Choose 2 players on the first night. To win, they must be eliminated and you must still be in the game at the end of the game;0;1 #Implemented
+Big Bad Wolf;Each night, wake up with the other Werewolves. If you are still in the game, the Werewolves may eliminate two adjacent players;-9;1
+Fang Face;The first night, wake with the other Werewolves. While there are other werewolves in the game, do not wake up with them on subsequent nights.;-5;1 #Implemented
+Lone Wolf;Each night, wake with the other Werewolves. You only win if you are the last player in the game.;-5;1 #Implemented
+Dire Wolf;Each night, wake with the other Werewolves. The first night, choose a player to be your companion. You are eliminated if that player is eliminated.;-4;1 #Implemented
+Wolverine;Each night, wake with the other Werewolves. If you are the closest Werewolf to the target, the players hear a metallic sound.;-4;1
+Wolf Cub;Each night, wake with the Werewolves. If you are eliminated, the Werewolves eliminate two players the following night;-8;1 #Implemented
+Fruit Brute;Each night, wake with the other Werewolves. If you are the last Werewolf in the game, you do not get to eliminate a player at night.;-3;1 #Implemented
+Vampire;Each night, choose a player. That player is eliminated when a player gets their 2nd accusation the next day.;-7;8
+Old Hag;Each night, choose a player to leave the village during the next day.;1;1 #Implemented
+Hunter;If you are eliminated, you may immediately eliminate another player.;3;1 #Implemented
+Spellcaster;Each night, choose a player who may not speak the following day.;1;1 #Implemented
+Village Idiot;You always vote for players to be eliminated.;2;1 #Implemented
+Apprentice Seer;If the Seer is eliminated, you become the seer, waking each night to look for Werewolves.;4;1
+Mayor;Your vote counts twice.;2;1 #Implemented
+Tough Guy;If the Werewolves attempt to eliminate you, you are not eliminated until the following night.;3;1 #Implemented
+Aura Seer;Choose a player each night to see if that player is not a Werewolf or Villager;3;1 #Implemented
+Witch;You may save or eliminate a player at night once each per game;4;1 #TODO
+Priest;One night per game, choose a player to be protected. That player may not be eliminated at night.;3;1
+Diseased;If you are eliminated by Werewolves, they don't get to eliminate another player the following night.;3;1
+P.I.;One night per game, choose a player. You'll be told if that player or one of his neighbors is a Werewolf.;3;1
+Cult Leader;Each night, choose a player to join your cult. If all players are in your cult, you win.;1;1
+Prince;If you are voted to be eliminated, your role is revealed and you stay.;3;1
+Drunk;You are a Villager until the 3rd night, when you sober up and learn your real role.;4;1
+Mason;The first night, wake up to see who the other Mason is.;2;3 #Implemented #Tested
+Seer;Each night, choose a player to learn if he is a Villager or a Werewolf.;7;1 #Implemented #Tested
+Bodyguard;Each night, choose a player who cannot be eliminated that night.;3;1 #Implemented #Tested
+Villager;Find the Werewolves and eliminate them.;1;15 #Implemented #Tested
+Werewolf;Each night, wake with the other werewolves and choose a player to eliminate.;-6;12 #Implemented #Tested
