@@ -1363,7 +1363,7 @@ class Werewolf:
                 self.one_time_use.append(OneTimeActions.WitchSave)
 
 
-TOKEN = 'NjAwOTEwMzA5MjYzMjc4MDk1.XS60Hw.cBJDqrfBBaLDyK7so6L4qzvl9_M'
+TOKEN = 'NjAwOTEwMzA5MjYzMjc4MDk1.XU4siA.tg4ZDRmvVevmlli8ljUinquDdZ4'
 
 client = Client()
 games = {}

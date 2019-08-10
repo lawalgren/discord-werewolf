@@ -37,3 +37,49 @@ Seer;Each night, choose a player to learn if he is a Villager or a Werewolf.;7;1
 Bodyguard;Each night, choose a player who cannot be eliminated that night.;3;1 #Implemented #Tested
 Villager;Find the Werewolves and eliminate them.;1;15 #Implemented #Tested
 Werewolf;Each night, wake with the other werewolves and choose a player to eliminate.;-6;12 #Implemented #Tested
+
+#Artifacts
+The Emerald of Jealousy;Choose a player with an unrevealed Artifact card. Take that card from them, revealing it for yourself.;1
+The Cauldron of Sorcery;Choose a player who must truthfully say if he is a regular villager or not.;1
+The Diary of the Insomniac;You are told if either of your neighbors woke up the previous night.;1
+The Mist of Aura;Choose a player. That player must truthfully say if he is special (not a normal werewolf or villager).;1
+The Pendant of Pride;Choose a player and secretly show him your Ultimate Werewolf card.;1
+The Cap of Idiocy;Always vote to eliminate;inf
+The Talisman of Trouble;Two player are eliminated during the day that this Artifact is revealed.;1
+The Prism of Power;Choose three players. That night, the Werewolves must choose one of those three as their target.;1
+The Heart of Indifference;Each day at dawn, choose a player who may not vote.;inf
+The Amethyst of Knowledge;Choose a player with an unrevealed Artifact card and secretly view it. Then decide if you want that player to reveal that Artifact card now.;1
+The Orb of Speculation;Choose two players. If both of them are Werewolves the village team wins and the game is over. If they are not, you are instantly eliminated.;1
+The Shield of the Bodyguard;Each day at dawn, choose a different player who cannot be eliminated that night.;inf
+The Onyx of Destruction;Choose a player with an unrevealed Artifact card and remove it from the game.;1
+The Spear of Fury;Choose a player to be eliminated instantly, and show your Ultimate Werewolf card to everyone.;1
+The Eye of the Beholder;Each night, wake with the Seer.;inf
+The Cudgel of the Old Hag;Each day at dawn, choose a player to leave the village during the day.;inf
+The Staff of the Seer;Choose a player and secretly view their Ultimate Werewolf card.;1
+The Mirror of the Doppelganger;Choose a player and secretly view his Ultimate Werewolf card. You now have that player's special power in addition to yours.;inf
+The Mask of Spellcasting;Each day at dawn, choose a player who may not speak that day.;inf
+The Amber of Dawn;All players who have revealed '1' artifact cards receive new Artifact cards.;1
+The Shroud of Shame;Each day at dawn, choose a player who must face away from the rest of the players.;inf
+The Bow of Hunting;Choose a player who then chooses any other player, eliminating them instantly.;1
+The Brand of the Villager;Choose a player to lose his special power.;1
+The Mark of the Mayor;Your vote counts as two votes when voting to eliminate players.;inf
+The Skimmer of the Cursed;You are Cursed. If a werewolf targets you at night, you become a werewolf and join their team.;inf
+The Sheet of the Ghost;Ask a player who was eliminated the previous day to tell you a single letter.;1
+Thc Coin of Youth;You must say the name of your role at least once per day or you will be eliminated at night.;inf
+The Diamond of Denial;Choose a player with a revealed inf Artifact card and take that card from them, returning it to the deck.;1
+The Wreath of Peace;Never vote to eliminate.;inf
+The Sapphire of Fate;Choose a player with an unrevealed Artifact card and secretly view it. When that player reveals his Artifact card, both of you resolve it.;1
+The Cloak of the Prince;You may not be eliminated during the day.;inf
+The Ruby of Kismet;Choose two players and have each of them reveal their Artifact cards in the order you choose.;1
+The Breath of the Old Man;Choose a player to be eliminated the night after the next day.;1
+The Rod of Reincarnation;If you are eliminated, reveal your Artifact card and stay in the game...but different.;1
+The Scepter of Rebirth;If you are eliminated, reveal your Artifact card and stay in the game.;1
+The Ring of Truth;Choose a player. He must tell you if he is a Werewolf.;1
+The Vote from Beyond;You may vote during the day, even if you have been eliminated.;inf
+The Void of Nothingness;This artifact has no effect.;inf
+The Citrine of Fortune;Exchange this Artifact for a new one which must be revealed instantly.;1
+The Amulet of Protection;Each day at dawn, the holder of the Amulet must give it to a player who has not had it before. The player who has the Amulet cannot be eliminated.;inf
+The Claw of the Werewolf;You become a Werewolf, keeping any Ultimate Werewolf role power you have intact.;inf
+The Flask of Dreams;Choose a player to lose his special power for two days.;1
+The Blood of the Diseased;Choose a player to become infected with disease. If the Werewolves eliminate that player, they don't get to choose a target the following night.;1
+The Stone of Alteration;Secretly exchange your current Ultimate Werewolf card for another Ultimate Werewolf card.;1
