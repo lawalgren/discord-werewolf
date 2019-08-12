@@ -2,7 +2,9 @@
 from discord import *
 import random
 import math
+import signal
 import enum
+import asyncio
 
 
 class Phases(enum.Enum):
@@ -112,13 +114,16 @@ class Werewolf:
                     await self.channels['town_assembly'].send('Silly human. You can\'t accuse yourself!')
                     return
                 content = "%s has been accused of being a hairy wolf monster. React with 👍 for them to live, " \
-                          "💀 for them to die." % accused_user
+                          "💀 for them to die. Poll will close in 30 seconds." % accused_user
                 if len(list(filter(lambda x: x.message.content == content, self.messages))) == 0:
                     target_message = await self.channels['town_assembly'].send(content)
                     await target_message.add_reaction('👍')
                     await target_message.add_reaction('💀')
                     self.messages.append(VotingMessage(self.get_player_by_name(accused_user), message.author, target_message,
                                                        MessageTypes.Accusation))
+                    await asyncio.sleep(30)
+                    if len(list(filter(lambda x: x.message.content == content, self.messages))) != 0:
+                        await self.poll_timeout(self.get_message(target_message))
 
     async def add_user(self, message):
         if self.phase == Phases.Beginning:
@@ -636,7 +641,7 @@ class Werewolf:
         await self.channels['town_assembly'].send(
             "Night Phase. One of you will die tonight. Best come to terms with that...")
 
-        if self.banished_player is not None:
+        if self.banished_player is not None and self.banished_player.alive:
             overwrites = PermissionOverwrite()
             overwrites.read_messages = True
             overwrites.send_messages = True
@@ -645,7 +650,7 @@ class Werewolf:
             await self.banished_player.object.dm_channel.send("You are now able to access town assembly again.")
             self.banished_player = None
 
-        if self.silenced_player is not None:
+        if self.silenced_player is not None and self.silenced_player.alive:
             overwrites = PermissionOverwrite()
             overwrites.read_messages = True
             overwrites.send_messages = True
@@ -715,6 +720,33 @@ class Werewolf:
         first_space = message.content.find(' ')
         return message.content[first_space + 1::]
 
+    async def poll_timeout(self, message):
+        if message.rejections > message.confirmations:
+            await self.kill_player(message.target)
+            await self.channels['town_assembly'].send(
+                "You have successfully lynched %s. I bet your parents are proud of "
+                "you." % message.target.name)
+            self.messages.remove(message)
+            if not self.troublemaking:
+                result = self.check_game_end()
+                if result == Affiliations.Undetermined:
+                    self.villagers_voted = True
+                    await self.check_day_end()
+                else:
+                    self.winning_affiliations.append(result)
+                    await self.end()
+            else:
+                await self.channels['town_assembly'].send("The troublemaker has called for a second "
+                                                          "elimination to happen today. Eliminate "
+                                                          "another person to continue to the next "
+                                                          "night.")
+                self.troublemaking = False
+
+        else:
+            await self.channels['town_assembly'].send(
+                "You have failed to lynch %s. How does that make you feel?" % message.target.name)
+            self.messages.remove(message)
+
     async def reaction_handler_add(self, reaction, user):
         message_str = reaction.message
         message = self.get_message(message_str)
@@ -724,7 +756,8 @@ class Werewolf:
         player = self.get_player_by_name(user.name)
         if message is not None:
             if message.type == MessageTypes.Target:
-                if player.name.lower() != message.targeting_wolf.name.lower() and reaction.emoji == '👍':
+                if player.name.lower() != message.targeting_wolf.name.lower() and player.alive and reaction.emoji == \
+                        '👍':
                     message.confirmations += 1
                     message.voted_players.append(player)
                     if message.confirmations >= self.get_total_living_werewolves() - 1:
@@ -775,7 +808,8 @@ class Werewolf:
                         print("voted_down")
                     # else:
                     # await reaction.remove(user)
-                    if len(message.voted_players) >= self.get_total_living_players():
+                    if len(message.voted_players) >= (self.get_total_living_players() if self.banished_player is None
+                            else self.get_total_living_players() - 1):
                         if message.rejections > message.confirmations:
                             await self.kill_player(message.target)
                             await self.channels['town_assembly'].send(
@@ -846,6 +880,8 @@ class Werewolf:
         num = message_arr[2]
         if role is not None:
             self.desired_roles[role] = int(num)
+        if int(num) == 0:
+            del(self.desired_roles[role])
 
     async def silence(self, message):
         if self.get_player_by_name(message.author.name).role == Roles.Spellcaster and Roles.Spellcaster in \
@@ -1363,7 +1399,11 @@ class Werewolf:
                 self.one_time_use.append(OneTimeActions.WitchSave)
 
 
-TOKEN = 'NjAwOTEwMzA5MjYzMjc4MDk1.XU4siA.tg4ZDRmvVevmlli8ljUinquDdZ4'
+with open('key.txt', 'r') as key:
+    TOKEN = key.readline()
+
+print(TOKEN)
+
 
 client = Client()
 games = {}
